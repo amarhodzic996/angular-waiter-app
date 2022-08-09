@@ -1,0 +1,14 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="input-element">
+      <label for="email">E-mail adresa korisnika:</label>
+      <input type="text" ngModel required name="email" />
+    </div>
+    <div class="input-element">
+      <label for="password">Password (minimalno 6 karaktera)::</label>
+      <input type="password" ngModel required minlength="6" name="password" />
+    </div>
+
+    <button type="submit" [disabled]="!f.valid">Prijavi se</button>
+  </form>
+</div>

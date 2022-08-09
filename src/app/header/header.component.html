@@ -1,0 +1,19 @@
+<ul>
+  <li routerLinkActive="active-nav">
+    <a routerLink="/newreceipt" (click)="changeCategory()">Novi račun</a>
+  </li>
+  <li routerLinkActive="active-nav"><a routerLink="/report">Izvještaj</a></li>
+  <li routerLinkActive="active-nav">
+    <a routerLink="/additem">Dodaj artikal</a>
+  </li>
+  <li routerLinkActive="active-nav">
+    <a routerLink="/newuser">Dodaj korisnika</a>
+  </li>
+  <li class="logged-in">
+    <h2>Prijavljeni ste kao: {{ user }}</h2>
+  </li>
+  <li class="log-out">
+    <a (click)="logOut()">Odjavi se</a>
+  </li>
+</ul>
+<hr />

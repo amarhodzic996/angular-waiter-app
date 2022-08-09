@@ -1,0 +1,70 @@
+<div class="containter">
+  <div class="receipt-list-container">
+    <h2 class="receipt-list-description">
+      Za detaljan prikaz odaberite račun:
+    </h2>
+    <div class="receipt-list-legend">
+      <h2>Vrijeme</h2>
+      <h2>Iznos</h2>
+    </div>
+    <ul class="receipt-list">
+      <div class="lds-ring" *ngIf="isFetching">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <li
+        *ngFor="let receipt of allReceipts; index as i"
+        (click)="showReceipt(receipt, i)"
+        [ngStyle]="{
+          background:
+            i === selected
+              ? 'linear-gradient(to bottom, #ffa84c 0%,#ff7b0d 100%)'
+              : null,
+          transition: i === selected ? '1s' : null
+        }"
+      >
+        <h3>{{ receipt[0].date | date }}</h3>
+        <h3>{{ receipt[0].receiptSum }}KM</h3>
+        <h3>&#x2192;</h3>
+      </li>
+    </ul>
+    <div class="receipt-total">
+      <h2>Ukupno:</h2>
+      <h2>{{ total }}KM</h2>
+    </div>
+  </div>
+
+  <div class="receipt" *ngIf="!(receiptFromReceipts.length === 0)">
+    <ul class="receipt-expand-list">
+      <li class="receipt-list-element">
+        <div class="receipt-list-name">
+          <h2>Naziv artikla</h2>
+        </div>
+        <h2>Količina</h2>
+        <h2>Cijena</h2>
+      </li>
+
+      <li
+        class="receipt-list-element"
+        *ngFor="let receiptItem of receiptFromReceipts"
+      >
+        <div class="receipt-list-name">
+          <h3>{{ receiptItem.name }}</h3>
+        </div>
+        <p>{{ receiptItem.quantity }} kom.</p>
+
+        <p>{{ receiptItem.price }}KM</p>
+      </li>
+
+      <li class="receipt-list-element">
+        <div class="receipt-list-name">
+          <h2>Ukupno:</h2>
+        </div>
+        <p></p>
+        <h2>{{ receiptSum }}KM</h2>
+      </li>
+    </ul>
+  </div>
+</div>

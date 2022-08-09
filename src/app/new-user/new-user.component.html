@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="input-element">
+    <label for="name">Ime korisnika:</label>
+    <input type="text" ngModel required name="name" />
+  </div>
+  <div class="input-element">
+    <label for="email">E-mail adresa korisnika:</label>
+    <input type="text" ngModel required email name="email" />
+  </div>
+  <div class="input-element">
+    <label for="password">Password (minimalno 6 karaktera)::</label>
+    <input type="password" ngModel required minlength="6" name="password" />
+  </div>
+
+  <button type="submit" [disabled]="!f.valid">Dodaj korisnika</button>
+</form>
+<div class="lds-ring">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>

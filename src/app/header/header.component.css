@@ -1,0 +1,49 @@
+ul {
+  display: flex;
+  list-style: none;
+  margin-left: 1rem;
+  padding: 2rem 0rem;
+  gap: 1rem;
+}
+
+ul li {
+  transition: 0.5s;
+}
+
+a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  background-color: #162b7e;
+  padding: 1rem;
+  border-radius: 20px;
+  color: #eee;
+  box-shadow: 5px 5px 5px 2px #666;
+  transition: 1s;
+}
+
+a:active {
+  transform: translateY(2px);
+  color: #eee;
+}
+
+.logged-in {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.log-out {
+  margin-right: 3rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.active-nav {
+  transform: translateY(0.5rem);
+}
+
+.active-nav a {
+  background-color: rgb(202, 122, 102);
+  border: 1px solid #fff;
+}

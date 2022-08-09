@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="items-list">
+    <ul class="items" *ngIf="categorySelected">
+      <div class="go-back-btn">
+        <h1 (click)="changeCategoryOnGoBack()">&#8592; Idi nazad</h1>
+      </div>
+      <li
+        *ngFor="let item of items"
+        class="items-list-element"
+        (click)="addItemToReceipt(item)"
+      >
+        <img src="{{ item.image }}" alt="{{ item.name }}" class="item-image" />
+        <p class="item-name">{{ item.name }}</p>
+        <p class="item-price">Cijena: {{ item.price }} KM</p>
+      </li>
+    </ul>
+
+    <ul class="change-category" *ngIf="!categorySelected">
+      <li><button (click)="changeCategory('dishes')">Jela</button></li>
+      <li>
+        <button (click)="changeCategory('nonAlcDrinks')">
+          Bezalkoholna pića
+        </button>
+      </li>
+      <li>
+        <button (click)="changeCategory('alcDrinks')">Alkoholna pića</button>
+      </li>
+    </ul>
+
+    <div class="lds-ring" *ngIf="isFetching">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="receipt">
+    <ul class="receipt-list">
+      <li class="receipt-list-element">
+        <div class="receipt-list-name">
+          <h3>Naziv artikla</h3>
+        </div>
+        <h3>Količina</h3>
+        <h3>Cijena</h3>
+      </li>
+      <hr />
+      <li class="receipt-list-element" *ngFor="let receiptItem of receipt">
+        <div class="receipt-list-name">
+          <h3>{{ receiptItem.name }}</h3>
+        </div>
+        <p>{{ receiptItem.quantity }} kom.</p>
+
+        <p>{{ receiptItem.price }}KM</p>
+      </li>
+      <hr *ngIf="!(receipt.length === 0)" />
+      <li *ngIf="!(receipt.length === 0)" class="receipt-list-element">
+        <div class="receipt-list-name">
+          <h2>Ukupno:</h2>
+        </div>
+        <p></p>
+        <h2>{{ receiptSum }}KM</h2>
+      </li>
+      <li appSuccessfulPost class="successful-post" *ngIf="receiptAddedMessage">
+        <h3>Račun je uspješno sačuvan</h3>
+        <h4>Za pregled sačuvanog računa u meniu odaberite "Izvještaj"</h4>
+      </li>
+    </ul>
+    <div class="lds-ring" *ngIf="isPosting">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <div class="buttons">
+      <button [disabled]="receipt.length === 0" (click)="saveReceipt()">
+        Sačuvaj račun
+      </button>
+      <button [disabled]="receipt.length === 0" (click)="deleteReceipt()">
+        Izbriši račun
+      </button>
+    </div>
+  </div>
+</div>

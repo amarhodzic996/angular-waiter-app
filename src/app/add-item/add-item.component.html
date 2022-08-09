@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="input-element">
+    <label for="name">Naziv artikla:</label>
+    <input type="text" ngModel required name="name" />
+  </div>
+  <div class="input-element">
+    <label for="price">Cijena (KM):</label>
+    <input type="text" ngModel required name="price" />
+  </div>
+  <div class="input-element">
+    <label for="image">URL fotografije:</label>
+    <input type="text" ngModel required name="image" />
+  </div>
+  <select ngModel name="category" required>
+    <option value="dishes" selected>Jela</option>
+    <option value="nonAlcDrinks">Bezalkoholna pića</option>
+    <option value="alcDrinks">Alkoholna pića</option>
+  </select>
+  <label for="category">Odaberi kategoriju</label>
+
+  <button type="submit" [disabled]="!f.valid">Dodaj artikal</button>
+</form>
