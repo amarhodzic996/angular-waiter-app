@@ -10,6 +10,9 @@ import { Item } from './item-interface';
 })
 export class NewReceiptComponent implements OnInit {
   items: Item[];
+  paginationItems: Item[];
+  paginationNumbers: number[];
+  currentPage: number;
   categorySelected: string | boolean;
   isFetching = false;
   isPosting = false;
@@ -27,6 +30,7 @@ export class NewReceiptComponent implements OnInit {
     this.dataService.category.next(e);
     this.dataService.fetchData(e).subscribe((response) => {
       this.items = response;
+      this.pagination(0);
       this.isFetching = false;
     });
   }
@@ -57,6 +61,18 @@ export class NewReceiptComponent implements OnInit {
           this.receiptAddedMessage = false;
         }, 5000);
       });
+  }
+
+  pagination(pageNumber: number) {
+    this.currentPage = pageNumber + 1;
+    this.paginationItems = this.items.slice(
+      this.currentPage === 1 ? 0 : (this.currentPage - 1) * 12,
+      this.currentPage * 12
+    );
+    this.paginationNumbers = Array(Math.ceil(this.items.length / 12))
+      .fill(1)
+      .map((x, i) => i + 1);
+    console.log(Math.ceil(this.items.length / 12));
   }
 
   ngOnInit(): void {

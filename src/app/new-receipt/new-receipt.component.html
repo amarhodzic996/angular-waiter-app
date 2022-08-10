@@ -1,11 +1,11 @@
 <div class="container">
   <div class="items-list">
-    <ul class="items" *ngIf="categorySelected">
+    <ul class="items" *ngIf="categorySelected && !isFetching">
       <div class="go-back-btn">
         <h1 (click)="changeCategoryOnGoBack()">&#8592; Idi nazad</h1>
       </div>
       <li
-        *ngFor="let item of items"
+        *ngFor="let item of paginationItems"
         class="items-list-element"
         (click)="addItemToReceipt(item)"
       >
@@ -14,6 +14,18 @@
         <p class="item-price">Cijena: {{ item.price }} KM</p>
       </li>
     </ul>
+    <div class="pagination" *ngIf="categorySelected && !isFetching">
+      <p
+        *ngFor="let pageNumber of paginationNumbers; index as i"
+        (click)="pagination(i)"
+        class="pagination-number"
+        [ngStyle]="{
+          background: i + 1 === currentPage ? '#ca7a66' : null
+        }"
+      >
+        {{ pageNumber }}
+      </p>
+    </div>
 
     <ul class="change-category" *ngIf="!categorySelected">
       <li><button (click)="changeCategory('dishes')">Jela</button></li>
