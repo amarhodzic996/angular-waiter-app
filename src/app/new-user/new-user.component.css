@@ -20,6 +20,11 @@ input:focus {
   width: 50%;
 }
 
+.input-element label {
+  margin-bottom: 0.6rem;
+  font-size: 1.6rem;
+}
+
 label::before {
   content: "*";
   color: red;
