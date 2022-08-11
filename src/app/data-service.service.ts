@@ -2,9 +2,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { getSafePropertyAccessString } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { Item } from './new-receipt/item-interface';
+import { Item } from './interfaces/item-interface';
 import { map } from 'rxjs';
-import { User } from './user-interface';
+import { User } from './interfaces/user-interface';
 import { ReplaySubject } from 'rxjs';
 
 @Injectable({

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DataServiceService } from '../data-service.service';
-import { Item } from '../new-receipt/item-interface';
+import { Item } from '../interfaces/item-interface';
 
 @Component({
   selector: 'app-add-item',

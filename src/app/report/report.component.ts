@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
-import { User } from '../user-interface';
-import { Item } from '../new-receipt/item-interface';
+import { User } from '../interfaces/user-interface';
+import { Item } from '../interfaces/item-interface';
 
 @Component({
   selector: 'app-report',

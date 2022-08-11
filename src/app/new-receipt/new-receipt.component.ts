@@ -1,6 +1,6 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
-import { Item } from './item-interface';
+import { Item } from '../interfaces/item-interface';
 
 @Component({
   selector: 'app-new-receipt',

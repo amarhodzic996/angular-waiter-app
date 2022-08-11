@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { NewUser } from '../new-user-interface';
+import { NewUser } from '../interfaces/new-user-interface';
 import { HttpClient } from '@angular/common/http';
 import { take, exhaustMap, map } from 'rxjs';
 import { DataServiceService } from '../data-service.service';
-import { User } from '../user-interface';
-import { BehaviorSubject } from 'rxjs';
+import { User } from '../interfaces/user-interface';
 
 @Injectable({
   providedIn: 'root',
