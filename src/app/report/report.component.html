@@ -1,5 +1,5 @@
 <div class="containter">
-  <div class="receipt-list-container">
+  <div class="receipt-list-container" *ngIf="!fetchItemsError">
     <h2 class="receipt-list-description">
       Za detaljan prikaz odaberite račun:
     </h2>
@@ -66,5 +66,12 @@
         <h2>{{ receiptSum }}KM</h2>
       </li>
     </ul>
+  </div>
+
+  <div class="fetch-error" *ngIf="fetchItemsError">
+    <div class="fetch-error-message">
+      <h2>Ups! Nešto je krenulo po zlu.</h2>
+      <h2>Molimo osvježite aplikaciju.</h2>
+    </div>
   </div>
 </div>

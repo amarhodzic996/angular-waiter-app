@@ -109,3 +109,7 @@ span {
   justify-content: center;
   align-items: center;
 }
+
+.fetch-error-message {
+  height: 40%;
+}

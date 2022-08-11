@@ -10,10 +10,21 @@ import { Item } from '../new-receipt/item-interface';
 })
 export class AddItemComponent implements OnInit {
   @ViewChild('f') addItem: NgForm;
+  successfulPost = false;
+  postError = false;
+  isPosting = false;
   constructor(private dataService: DataServiceService) {}
 
   onSubmit(form: NgForm) {
-    this.dataService.postNewItem(form.value);
+    this.isPosting = true;
+    this.dataService.postNewItem(form.value).subscribe(
+      () => {
+        this.successfulPost = true;
+        this.isPosting = false;
+        setTimeout(() => (this.successfulPost = false), 3000);
+      },
+      (err) => (this.postError = true)
+    );
     this.addItem.reset();
   }
 

@@ -66,13 +66,11 @@ export class DataServiceService {
       category: data.category,
     };
     console.log(data);
-    this.http
-      .post(
-        `https://waiter-app-305cd-default-rtdb.europe-west1.firebasedatabase.app/${upData.category}.json`,
-        upData,
-        { params: new HttpParams().set('auth', this.userLoggedIn.idToken) }
-      )
-      .subscribe();
+    return this.http.post(
+      `https://waiter-app-305cd-default-rtdb.europe-west1.firebasedatabase.app/${upData.category}.json`,
+      upData,
+      { params: new HttpParams().set('auth', this.userLoggedIn.idToken) }
+    );
   }
 
   postNewReceipt(receipt: Item[], receiptSum: number) {

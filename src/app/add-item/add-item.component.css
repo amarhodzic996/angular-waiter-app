@@ -49,3 +49,11 @@ button {
   gap: 1rem;
   font-size: 1.6rem;
 }
+
+.lds-ring {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

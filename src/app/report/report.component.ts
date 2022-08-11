@@ -16,6 +16,7 @@ export class ReportComponent implements OnInit {
   selected: number;
   receiptSum: number | undefined;
   isFetching = false;
+  fetchItemsError = false;
   constructor(private dataService: DataServiceService) {}
 
   showReceipt(receipt: Item[], i: number) {
@@ -28,15 +29,18 @@ export class ReportComponent implements OnInit {
     this.isFetching = true;
     this.user = this.dataService.userLoggedIn;
     this.dataService.user.subscribe((data) =>
-      this.dataService.getReport(data).subscribe((data) => {
-        this.isFetching = false;
-        this.allReceipts = data;
-        this.total = this.allReceipts.reduce(
-          (previousValue, currentValue) =>
-            previousValue + currentValue[0].receiptSum,
-          0
-        );
-      })
+      this.dataService.getReport(data).subscribe(
+        (data) => {
+          this.isFetching = false;
+          this.allReceipts = data;
+          this.total = this.allReceipts.reduce(
+            (previousValue, currentValue) =>
+              previousValue + currentValue[0].receiptSum,
+            0
+          );
+        },
+        (err) => (this.fetchItemsError = true)
+      )
     );
   }
 }

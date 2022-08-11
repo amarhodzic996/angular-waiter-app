@@ -1,4 +1,8 @@
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+<form
+  (ngSubmit)="onSubmit(f)"
+  #f="ngForm"
+  *ngIf="!successfulPost && !isPosting"
+>
   <div class="input-element">
     <label for="name">Naziv artikla:</label>
     <input type="text" ngModel required name="name" />
@@ -21,3 +25,23 @@
   </div>
   <button type="submit" [disabled]="!f.valid">Dodaj artikal</button>
 </form>
+
+<div class="lds-ring" *ngIf="isPosting && !successfulPost && !postError">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<div class="successful-post" *ngIf="successfulPost">
+  <div class="successful-post-message">
+    <h2>Artikal je uspješno dodan u sistem</h2>
+  </div>
+</div>
+
+<div class="fetch-error" *ngIf="postError">
+  <div class="fetch-error-message">
+    <h2>Ups! Nešto je krenulo po zlu.</h2>
+    <h2>Molimo osvježite aplikaciju.</h2>
+  </div>
+</div>

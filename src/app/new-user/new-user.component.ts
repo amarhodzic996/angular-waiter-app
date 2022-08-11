@@ -10,9 +10,20 @@ import { DataServiceService } from '../data-service.service';
 })
 export class NewUserComponent implements OnInit {
   @ViewChild('f') signUp: NgForm;
+  successfulPost = false;
+  isPosting = false;
+  postError = false;
   constructor(private authDataService: AuthDataService) {}
   onSubmit(data: NgForm) {
-    this.authDataService.addUser(data.value).subscribe((data) => {});
+    this.isPosting = true;
+    this.authDataService.addUser(data.value).subscribe(
+      () => {
+        this.successfulPost = true;
+        this.isPosting = false;
+        setTimeout(() => (this.successfulPost = false), 3000);
+      },
+      (err) => (this.postError = true)
+    );
   }
   ngOnInit(): void {}
 }

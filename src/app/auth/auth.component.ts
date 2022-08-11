@@ -11,6 +11,7 @@ import { AuthDataService } from './auth-data.service';
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent implements OnInit {
+  postError = false;
   constructor(
     private authDataService: AuthDataService,
     private dataService: DataServiceService,
@@ -18,9 +19,8 @@ export class AuthComponent implements OnInit {
   ) {}
 
   onSubmit(data: NgForm) {
-    this.authDataService
-      .logIn(data.value.email, data.value.password)
-      .subscribe((data) => {
+    this.authDataService.logIn(data.value.email, data.value.password).subscribe(
+      (data) => {
         this.dataService.user.next(data);
         this.dataService.userLoggedIn = data;
         this.authDataService.isAuth = true;
@@ -32,7 +32,12 @@ export class AuthComponent implements OnInit {
           })
         );
         this.router.navigate(['/newreceipt']);
-      });
+      },
+      (err) => {
+        this.postError = true;
+        console.log(err);
+      }
+    );
   }
 
   checkSession() {

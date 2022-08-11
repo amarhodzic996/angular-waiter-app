@@ -11,4 +11,9 @@
 
     <button type="submit" [disabled]="!f.valid">Prijavi se</button>
   </form>
+  <div class="fetch-error" *ngIf="postError">
+    <div class="fetch-error-message">
+      <h2>Pogrešna e-mail adresa ili lozinka</h2>
+    </div>
+  </div>
 </div>

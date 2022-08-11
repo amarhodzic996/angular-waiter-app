@@ -1,5 +1,17 @@
 <div class="container">
   <div class="items-list">
+    <ul class="change-category" *ngIf="!categorySelected">
+      <li><button (click)="changeCategory('dishes')">Jela</button></li>
+      <li>
+        <button (click)="changeCategory('nonAlcDrinks')">
+          Bezalkoholna pića
+        </button>
+      </li>
+      <li>
+        <button (click)="changeCategory('alcDrinks')">Alkoholna pića</button>
+      </li>
+    </ul>
+
     <ul class="items" *ngIf="categorySelected && !isFetching">
       <div class="go-back-btn">
         <h1 (click)="changeCategoryOnGoBack()">&#8592; Idi nazad</h1>
@@ -27,19 +39,14 @@
       </p>
     </div>
 
-    <ul class="change-category" *ngIf="!categorySelected">
-      <li><button (click)="changeCategory('dishes')">Jela</button></li>
-      <li>
-        <button (click)="changeCategory('nonAlcDrinks')">
-          Bezalkoholna pića
-        </button>
-      </li>
-      <li>
-        <button (click)="changeCategory('alcDrinks')">Alkoholna pića</button>
-      </li>
-    </ul>
+    <div class="fetch-error" *ngIf="fetchItemsError">
+      <div class="fetch-error-message">
+        <h2>Ups! Nešto je krenulo po zlu.</h2>
+        <h2>Molimo osvježite aplikaciju.</h2>
+      </div>
+    </div>
 
-    <div class="lds-ring" *ngIf="isFetching">
+    <div class="lds-ring" *ngIf="isFetching && !fetchItemsError">
       <div></div>
       <div></div>
       <div></div>

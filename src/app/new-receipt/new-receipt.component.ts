@@ -16,6 +16,7 @@ export class NewReceiptComponent implements OnInit {
   categorySelected: string | boolean;
   isFetching = false;
   isPosting = false;
+  fetchItemsError = false;
   receipt: Item[];
   receiptSum: number;
   receiptAddedMessage = false;
@@ -28,11 +29,14 @@ export class NewReceiptComponent implements OnInit {
   changeCategory(e: string) {
     this.isFetching = true;
     this.dataService.category.next(e);
-    this.dataService.fetchData(e).subscribe((response) => {
-      this.items = response;
-      this.pagination(0);
-      this.isFetching = false;
-    });
+    this.dataService.fetchData(e).subscribe(
+      (response) => {
+        this.items = response;
+        this.pagination(0);
+        this.isFetching = false;
+      },
+      (err) => (this.fetchItemsError = true)
+    );
   }
 
   changeCategoryOnGoBack() {

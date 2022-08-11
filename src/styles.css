@@ -83,3 +83,33 @@ input {
     transform: rotate(360deg);
   }
 }
+
+.fetch-error {
+  width: 100%;
+  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+}
+
+.fetch-error-message {
+  background-color: #ffbaba;
+  border: 1px solid #d44545;
+  width: 50%;
+  padding: 5rem;
+  text-align: center;
+}
+
+.successful-post {
+  width: 100%;
+  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+}
+
+.successful-post-message {
+  background-color: #0080003b;
+  border: 1px solid #0e6d0b;
+  width: 50%;
+  padding: 5rem;
+  text-align: center;
+}
