@@ -17,16 +17,16 @@ export class AddItemComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.isPosting = true;
-    this.dataService.postNewItem(form.value).subscribe(
-      () => {
+    this.dataService.postNewItem(form.value).subscribe({
+      next: (data) => {
         this.successfulPost = true;
         this.isPosting = false;
         setTimeout(() => (this.successfulPost = false), 1500);
       },
-      (err) => {
+      error: (err) => {
         this.postError = true;
-      }
-    );
+      },
+    });
     this.addItem.reset();
   }
 

@@ -16,14 +16,14 @@ export class NewUserComponent implements OnInit {
   constructor(private authDataService: AuthDataService) {}
   onSubmit(data: NgForm) {
     this.isPosting = true;
-    this.authDataService.addUser(data.value).subscribe(
-      () => {
+    this.authDataService.addUser(data.value).subscribe({
+      next: () => {
         this.successfulPost = true;
         this.isPosting = false;
         setTimeout(() => (this.successfulPost = false), 3000);
       },
-      (err) => (this.postError = true)
-    );
+      error: (err) => (this.postError = true),
+    });
   }
   ngOnInit(): void {}
 }

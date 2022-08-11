@@ -29,14 +29,14 @@ export class NewReceiptComponent implements OnInit {
   changeCategory(e: string) {
     this.isFetching = true;
     this.dataService.category.next(e);
-    this.dataService.fetchData(e).subscribe(
-      (response) => {
+    this.dataService.fetchData(e).subscribe({
+      next: (response) => {
         this.items = response;
         this.pagination(0);
         this.isFetching = false;
       },
-      (err) => (this.fetchItemsError = true)
-    );
+      error: (err) => (this.fetchItemsError = true),
+    });
   }
 
   changeCategoryOnGoBack() {

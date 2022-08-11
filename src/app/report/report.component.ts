@@ -29,8 +29,8 @@ export class ReportComponent implements OnInit {
     this.isFetching = true;
     this.user = this.dataService.userLoggedIn;
     this.dataService.user.subscribe((data) =>
-      this.dataService.getReport(data).subscribe(
-        (data) => {
+      this.dataService.getReport(data).subscribe({
+        next: (data) => {
           this.isFetching = false;
           this.allReceipts = data;
           this.total = this.allReceipts.reduce(
@@ -39,8 +39,8 @@ export class ReportComponent implements OnInit {
             0
           );
         },
-        (err) => (this.fetchItemsError = true)
-      )
+        error: (err) => (this.fetchItemsError = true),
+      })
     );
   }
 }
