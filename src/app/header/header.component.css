@@ -32,6 +32,9 @@ a:active {
   gap: 1rem;
   justify-content: flex-end;
 }
+.logged-in span {
+  color: #1e90ff;
+}
 
 .log-out {
   margin-right: 3rem;

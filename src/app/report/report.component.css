@@ -35,7 +35,7 @@ span {
 .receipt-list li {
   font-size: 1.5rem;
   display: grid;
-  grid-template-columns: 8fr 4fr 1fr;
+  grid-template-columns: 8fr 2fr 1fr;
   gap: 2rem;
   border-top: solid 1px #999;
   justify-items: left;

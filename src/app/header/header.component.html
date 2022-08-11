@@ -10,7 +10,9 @@
     <a routerLink="/newuser">Dodaj korisnika</a>
   </li>
   <li class="logged-in">
-    <h2>Prijavljeni ste kao: {{ user }}</h2>
+    <h2>
+      Prijavljeni ste kao: <span>{{ user }}</span>
+    </h2>
   </li>
   <li class="log-out">
     <a (click)="logOut()">Odjavi se</a>

@@ -21,9 +21,11 @@ export class AddItemComponent implements OnInit {
       () => {
         this.successfulPost = true;
         this.isPosting = false;
-        setTimeout(() => (this.successfulPost = false), 3000);
+        setTimeout(() => (this.successfulPost = false), 1500);
       },
-      (err) => (this.postError = true)
+      (err) => {
+        this.postError = true;
+      }
     );
     this.addItem.reset();
   }

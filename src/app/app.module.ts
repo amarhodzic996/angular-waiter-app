@@ -26,6 +26,7 @@ const appRoutes = [
   { path: 'additem', component: AddItemComponent, canActivate: [AuthGuard] },
   { path: 'newuser', component: NewUserComponent, canActivate: [AuthGuard] },
   { path: 'auth', component: AuthComponent },
+  { path: '**', component: AuthComponent },
 ];
 
 @NgModule({
