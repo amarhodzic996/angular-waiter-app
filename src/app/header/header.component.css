@@ -10,7 +10,7 @@ ul li {
   transition: 0.5s;
 }
 
-a {
+.nav-link {
   font-size: 1.5rem;
   text-decoration: none;
   background-color: #162b7e;
@@ -49,4 +49,13 @@ a:active {
 .active-nav a {
   background-color: #ca7a66;
   border: 1px solid #fff;
+}
+
+@media screen and (max-width: 870px) {
+  .nav-link {
+    font-size: 1rem;
+  }
+  .logged-in {
+    font-size: 0.8rem;
+  }
 }

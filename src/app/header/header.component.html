@@ -1,13 +1,17 @@
 <ul>
   <li routerLinkActive="active-nav">
-    <a routerLink="/newreceipt" (click)="changeCategory()">Novi račun</a>
-  </li>
-  <li routerLinkActive="active-nav"><a routerLink="/report">Izvještaj</a></li>
-  <li routerLinkActive="active-nav">
-    <a routerLink="/additem">Dodaj artikal</a>
+    <a routerLink="/newreceipt" (click)="changeCategory()" class="nav-link"
+      >Novi račun</a
+    >
   </li>
   <li routerLinkActive="active-nav">
-    <a routerLink="/newuser">Dodaj korisnika</a>
+    <a routerLink="/report" class="nav-link">Izvještaj</a>
+  </li>
+  <li routerLinkActive="active-nav">
+    <a routerLink="/additem" class="nav-link">Dodaj artikal</a>
+  </li>
+  <li routerLinkActive="active-nav">
+    <a routerLink="/newuser" class="nav-link">Dodaj korisnika</a>
   </li>
   <li class="logged-in">
     <h2>
@@ -15,7 +19,7 @@
     </h2>
   </li>
   <li class="log-out">
-    <a (click)="logOut()">Odjavi se</a>
+    <a (click)="logOut()" class="nav-link">Odjavi se</a>
   </li>
 </ul>
 <hr />

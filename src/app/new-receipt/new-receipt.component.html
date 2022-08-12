@@ -22,7 +22,15 @@
         (click)="addItemToReceipt(item)"
       >
         <img src="{{ item.image }}" alt="{{ item.name }}" class="item-image" />
-        <p class="item-name">{{ item.name }}</p>
+        <p
+          class="item-name"
+          [ngClass]="{
+            'item-name-very-long': item.name.length > 50,
+            'item-name-long': item.name.length > 15
+          }"
+        >
+          {{ item.name }}
+        </p>
         <p class="item-price">Cijena: {{ item.price }} KM</p>
       </li>
     </ul>

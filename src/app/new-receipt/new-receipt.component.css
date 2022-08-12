@@ -17,7 +17,6 @@
 .items {
   list-style: none;
   display: grid;
-
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
   padding: 1.5rem;
@@ -65,8 +64,18 @@
 }
 
 .item-name {
-  font-size: 2rem;
   font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+}
+
+.item-name-short {
+  font-size: 2rem;
+}
+.item-name-long {
+  font-size: 1.5rem;
+}
+.item-name-very-long {
+  font-size: 1rem;
 }
 
 .item-price {
