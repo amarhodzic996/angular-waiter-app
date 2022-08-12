@@ -11,7 +11,11 @@ ul li {
 }
 
 ul li:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
+}
+
+ul li:nth-child(5) {
+  transform: translateY(0);
 }
 
 .nav-link {
@@ -49,10 +53,6 @@ ul li:hover {
 .active-nav a {
   background-color: #4b63c5;
   border: 1px solid #fff;
-}
-
-.logged-in:hover {
-  transform: translateY(0);
 }
 
 @media screen and (max-width: 870px) {
