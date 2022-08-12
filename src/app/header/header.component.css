@@ -47,7 +47,7 @@ ul li:nth-child(5) {
 }
 
 .active-nav {
-  transform: translateY(0.5rem);
+  transform: translateY(0.3rem);
 }
 
 .active-nav a {
