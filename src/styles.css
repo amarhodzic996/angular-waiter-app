@@ -28,7 +28,7 @@ button {
 }
 
 button:hover {
-  transition: 0s;
+  transform: translateY(5px);
 }
 button:active {
   transform: translateY(3px);

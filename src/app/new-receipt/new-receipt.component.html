@@ -2,6 +2,7 @@
   <div class="items-list">
     <ul class="change-category" *ngIf="!categorySelected">
       <li><button (click)="changeCategory('dishes')">Jela</button></li>
+      <li><button (click)="changeCategory('desert')">Deserti</button></li>
       <li>
         <button (click)="changeCategory('nonAlcDrinks')">
           Bezalkoholna pića
@@ -26,7 +27,7 @@
           class="item-name"
           [ngClass]="{
             'item-name-very-long': item.name.length > 50,
-            'item-name-long': item.name.length > 15
+            'item-name-long': item.name.length > 10
           }"
         >
           {{ item.name }}
@@ -40,7 +41,7 @@
         (click)="pagination(i)"
         class="pagination-number"
         [ngStyle]="{
-          background: i + 1 === currentPage ? '#ca7a66' : null
+          background: i + 1 === currentPage ? '#4b63c5' : null
         }"
       >
         {{ pageNumber }}

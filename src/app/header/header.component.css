@@ -10,6 +10,10 @@ ul li {
   transition: 0.5s;
 }
 
+ul li:hover {
+  transform: translateY(-5px);
+}
+
 .nav-link {
   font-size: 1.5rem;
   text-decoration: none;
@@ -17,13 +21,9 @@ ul li {
   padding: 1rem;
   border-radius: 20px;
   color: #eee;
-  box-shadow: 5px 5px 5px 2px #666;
-  transition: 1s;
-}
-
-a:active {
-  transform: translateY(2px);
-  color: #eee;
+  box-shadow: 1px 1px 2px 2px #666;
+  transition: 0.5s;
+  font-weight: 500;
 }
 
 .logged-in {
@@ -47,7 +47,7 @@ a:active {
 }
 
 .active-nav a {
-  background-color: #ca7a66;
+  background-color: #4b63c5;
   border: 1px solid #fff;
 }
 
