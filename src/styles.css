@@ -116,6 +116,18 @@ input {
 
 @media screen and (max-height: 1050px) {
   html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-height: 920px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-height: 780px) {
+  html {
     font-size: 10px;
   }
 }
