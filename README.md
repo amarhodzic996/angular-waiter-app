@@ -1,4 +1,5 @@
 # WaiterApp
+![Alt text](https://i.im.ge/2022/08/15/OudOEr.waiterapp.png "Optional title")
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
 
