@@ -4,8 +4,8 @@ Front-end Application for creating and saving waiter receipts. App uses Google F
 
 [LIVE DEMO](https://angular-waiter-app.netlify.app/newreceipt)
 
-![Alt text](https://i.im.ge/2022/08/15/OudOEr.waiterapp.png "Waiter-app")
-![Alt text](https://i.im.ge/2022/08/15/Ouqmsr.download.png "Waiter-app")
+![Alt text](https://raw.githubusercontent.com/amarhodzic996/angular-waiter-app/master/screenshots/app-screenshot_1.png "Waiter-app")
+![Alt text](https://raw.githubusercontent.com/amarhodzic996/angular-waiter-app/master/screenshots/app-screenshot_2.png "Waiter-app")
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
 
